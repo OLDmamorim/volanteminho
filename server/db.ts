@@ -253,3 +253,53 @@ export async function listIndisponibilidades() {
   if (!db) return [];
   return db.select().from(indisponibilidades);
 }
+
+// Aliases for compatibility
+export async function getAllUsers() {
+  return listUsers();
+}
+
+export async function deleteUser(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(users).where(eq(users.id, id));
+}
+
+export async function getAllLojas() {
+  return listLojas();
+}
+
+export async function deleteLoja(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(lojas).where(eq(lojas.id, id));
+}
+
+export async function getAllPedidos() {
+  return listPedidos();
+}
+
+export async function getPedidosByLoja(lojaId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(pedidos).where(eq(pedidos.lojaId, lojaId));
+}
+
+export async function getAprovacaoByPedidoId(pedidoId: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(aprovacoes).where(eq(aprovacoes.pedidoId, pedidoId)).limit(1);
+  return result[0];
+}
+
+export async function getIndisponibilidadesByGestor(gestorId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(indisponibilidades).where(eq(indisponibilidades.gestorId, gestorId));
+}
+
+export async function deleteIndisponibilidade(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(indisponibilidades).where(eq(indisponibilidades.id, id));
+}
