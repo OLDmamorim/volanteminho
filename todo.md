@@ -76,3 +76,7 @@
 - [x] Mover logo para dentro do card branco
 - [x] Ajustar bordas dos inputs (mais grossas quando em foco)
 - [x] Adicionar fundo cinza claro atrás do logo
+
+## Bugs
+- [x] Desativar OAuth e usar apenas login com username/password
+- [x] Corrigir redirecionamento após login
