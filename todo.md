@@ -71,3 +71,8 @@
 - [x] Adicionar logo ExpressGlass
 - [x] Alterar título para "Apoio Minho"
 - [x] Estilizar inputs e botão conforme exemplo
+
+## Ajustes Finais de Design
+- [x] Mover logo para dentro do card branco
+- [x] Ajustar bordas dos inputs (mais grossas quando em foco)
+- [x] Adicionar fundo cinza claro atrás do logo
