@@ -60,8 +60,8 @@
 - [x] Atualizar todas as referências ao nome do portal
 
 ## Deploy e Configuração
-- [ ] Configurar repositório GitHub (volanteminho)
-- [ ] Preparar configuração Netlify
-- [ ] Configurar variáveis de ambiente Neon
-- [ ] Criar README com instruções
-- [ ] Push para GitHub
+- [x] Configurar repositório GitHub (volanteminho)
+- [x] Preparar configuração Netlify
+- [x] Configurar variáveis de ambiente Neon
+- [x] Criar README com instruções
+- [x] Push para GitHub
