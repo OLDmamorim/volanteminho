@@ -65,3 +65,9 @@
 - [x] Configurar variáveis de ambiente Neon
 - [x] Criar README com instruções
 - [x] Push para GitHub
+
+## Design e Branding
+- [x] Redesenhar página de login com fundo gradiente azul/roxo
+- [x] Adicionar logo ExpressGlass
+- [x] Alterar título para "Apoio Minho"
+- [x] Estilizar inputs e botão conforme exemplo
