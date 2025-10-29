@@ -7,6 +7,7 @@ import { TRPCError } from "@trpc/server";
 import * as db from "./db";
 import { sendWhatsAppMessage, getWhatsAppTemplate } from "./whatsapp";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 // Custom procedure for admin-only access
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
@@ -35,7 +36,7 @@ export const appRouter = router({
         username: z.string(),
         password: z.string(),
       }))
-      .mutation(async ({ input }) => {
+      .mutation(async ({ input, ctx }) => {
         const user = await db.getUserByUsername(input.username);
         
         if (!user || !user.password) {
@@ -50,6 +51,16 @@ export const appRouter = router({
         if (!user.active) {
           throw new TRPCError({ code: 'FORBIDDEN', message: 'Utilizador inativo' });
         }
+
+        // Create session cookie
+        const token = jwt.sign(
+          { userId: user.id, openId: user.openId, role: user.role },
+          process.env.JWT_SECRET!,
+          { expiresIn: '7d' }
+        );
+        
+        const cookieOptions = getSessionCookieOptions(ctx.req);
+        ctx.res.cookie(COOKIE_NAME, token, cookieOptions);
 
         return { success: true, user };
       }),

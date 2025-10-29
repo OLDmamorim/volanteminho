@@ -80,3 +80,5 @@
 ## Bugs
 - [x] Desativar OAuth e usar apenas login com username/password
 - [x] Corrigir redirecionamento após login
+
+- [x] Corrigir erro no login - backend não está a responder corretamente
