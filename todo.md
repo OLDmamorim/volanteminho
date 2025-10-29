@@ -82,3 +82,5 @@
 - [x] Corrigir redirecionamento após login
 
 - [x] Corrigir erro no login - backend não está a responder corretamente
+
+- [x] Verificar porque login não funciona no Netlify (problema com prepared statements do Drizzle)

@@ -54,7 +54,7 @@ export const appRouter = router({
 
         // Create session cookie
         const token = jwt.sign(
-          { userId: user.id, openId: user.openId, role: user.role },
+          { userId: user.id, openId: user.openId || `local-${user.id}`, role: user.role },
           process.env.JWT_SECRET!,
           { expiresIn: '7d' }
         );
