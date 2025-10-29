@@ -108,4 +108,3 @@ temp/
 
 # Local Netlify folder
 .netlify
-netlify/functions/*.mjs
